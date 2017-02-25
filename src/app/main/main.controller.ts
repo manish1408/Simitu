@@ -1,16 +1,10 @@
-import { WebDevTecService, ITecThing } from '../components/webDevTec/webDevTec.service';
-
 export class MainController {
-  public awesomeThings: ITecThing[];
-  public webDevTec: WebDevTecService;
   public classAnimation: string;
   public creationDate: number;
   public toastr: any;
 
   /* @ngInject */
-  constructor ($timeout: angular.ITimeoutService, webDevTec: WebDevTecService, toastr: any) {
-    this.awesomeThings = new Array();
-    this.webDevTec = webDevTec;
+  constructor ($timeout: angular.ITimeoutService, toastr: any) {
     this.classAnimation = '';
     this.creationDate = 1487961328689;
     this.toastr = toastr;
@@ -19,7 +13,6 @@ export class MainController {
 
   /** @ngInject */
   activate($timeout: angular.ITimeoutService) {
-    this.getWebDevTec();
 
     $timeout(() => {
       this.classAnimation = 'rubberBand';
@@ -29,9 +22,5 @@ export class MainController {
   showToastr() {
     this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
     this.classAnimation = '';
-  }
-
-  getWebDevTec() {
-    this.awesomeThings = this.webDevTec.tec;
   }
 }

@@ -1,4 +1,4 @@
-/// <reference path="../../typings/main.d.ts" />
+/// <reference path="../../typings/index.d.ts" />
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
@@ -19,5 +19,5 @@ module simitu {
     .config(routerConfig)
     .run(runBlock)
     .controller('MainController', MainController)
-    .directive('acmeNavbar', acmeNavbar)
+    .directive('acmeNavbar', acmeNavbar);
 }
