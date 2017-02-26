@@ -4,6 +4,7 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
+import { LoginController } from './login/login.controller';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
 
 declare var malarkey: any;
@@ -19,5 +20,6 @@ module simitu {
     .config(routerConfig)
     .run(runBlock)
     .controller('MainController', MainController)
+    .controller('LoginController', LoginController)
     .directive('acmeNavbar', acmeNavbar);
 }
