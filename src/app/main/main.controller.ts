@@ -1,26 +1,138 @@
 export class MainController {
-  public classAnimation: string;
-  public creationDate: number;
-  public toastr: any;
+  public menu = [];
 
   /* @ngInject */
-  constructor ($timeout: angular.ITimeoutService, toastr: any) {
-    this.classAnimation = '';
-    this.creationDate = 1487961328689;
-    this.toastr = toastr;
-    this.activate($timeout);
+  constructor($timeout: angular.ITimeoutService, toastr: any) {
+    this.menu = [
+      {
+        name: 'Overview',
+        link: '#',
+        isOpened: true,
+        font: 'fa fa-tachometer',
+        submenu: [{
+          name: 'Inbound',
+          link: '#'
+        },
+        {
+          name: 'Outbound',
+          link: '#'
+        },
+        {
+          name: 'Admin',
+          link: '#'
+        }
+        ]
+      },
+      {
+        name: 'Archive',
+        link: '#',
+        font: 'fa fa-archive',
+        isOpened: false
+      },
+      {
+        name: 'Settings',
+        link: '#',
+        isOpened: false,
+        font: 'fa fa-cogs',
+        submenu: [{
+          name: 'Overview',
+          link: '#'
+        },
+        {
+          name: 'Antispan',
+          link: '#'
+        },
+        {
+          name: 'QMS',
+          link: '#'
+        },
+        {
+          name: 'Antivirus',
+          link: '#'
+        },
+        {
+          name: 'Inbound',
+          link: '#'
+        },
+        {
+          name: 'Outbound',
+          link: '#'
+        },
+        {
+          name: 'Archive',
+          link: '#'
+        },
+        {
+          name: 'Lists',
+          link: '#'
+        },
+        {
+          name: 'Diagnostics',
+          link: '#'
+        },
+        {
+          name: 'Users',
+          link: '#'
+        },
+        {
+          name: 'True Users',
+          link: '#'
+        },
+        {
+          name: 'Token Manager',
+          link: '#'
+        },
+        {
+          name: 'Interface',
+          link: '#'
+        },
+        {
+          name: 'Change Password',
+          link: '#'
+        }
+        ]
+      },
+      {
+        name: 'Statics',
+        link: '#',
+         font: 'fa fa-pie-chart',
+        isOpened: false,
+        submenu: [{
+          name: 'Day',
+          link: '#'
+        },
+        {
+          name: 'Month',
+          link: '#'
+        },
+        {
+          name: 'Year',
+          link: '#'
+        },
+        {
+          name: 'Custom',
+          link: '#'
+        },
+        {
+          name: 'Total',
+          link: '#'
+        }
+        ]
+      },
+      {
+        name: 'Logout',
+        link: '#',
+         font: 'fa fa-sign-out',
+        isOpened: false
+        
+      }
+    ];
   }
-
-  /** @ngInject */
-  activate($timeout: angular.ITimeoutService) {
-
-    $timeout(() => {
-      this.classAnimation = 'rubberBand';
-    }, 4000);
-  }
-
-  showToastr() {
-    this.toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-    this.classAnimation = '';
+  toggleMenu(name: any) {
+    this.menu.forEach(element => {
+      if (element.name === name) {
+        element.isOpened = !element.isOpened;
+      }
+    });
   }
 }

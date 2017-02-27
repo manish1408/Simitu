@@ -5,13 +5,13 @@ export function routerConfig($stateProvider: angular.ui.IStateProvider, $urlRout
       url: '/home',
       templateUrl: 'app/main/main.html',
       controller: 'MainController',
-      controllerAs: 'main'
+      controllerAs: 'vm'
     })
     .state('login', {
       url: '/',
       templateUrl: 'app/login/login.html',
       controller: 'LoginController',
-      controllerAs: 'login'
+      controllerAs: 'vm'
     });
 
   $urlRouterProvider.otherwise('/');
